@@ -23,25 +23,23 @@
         </section>
         <!-- Search Result: JobList -->
         <section class="projectsList">
-            <div class="container">
-                <div class="grid grid--three">
-
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                <div class="grid grid--three" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+        
                     {% for job in jobs %}
-
-                        <div class="column">
-                            <div class="card projects">
-                                <a href="{% url 'job:job' job.id %}" class="project">
-                                    <img class="project__thumbnail" src="{{ job.imageURL }}"
-                                         alt="project thumbnail"/>
-                                    <div class="card__body">
-                                        <h3 class="project__title">{{ job.title }}</h3>
-                                        <p><a class="project__author" href="#">{{ job.get_type_display }}</a></p>
+                        <div class="column" style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin-bottom: 20px; max-width: calc(33.333% - 20px);">
+                            <div class="card projects" style="border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; background-color: #fff;">
+                                <a href="{% url 'job:job' job.id %}" class="project" style="text-decoration: none; color: inherit; display: block;">
+                                    <img class="project__thumbnail" src="{{ job.imageURL }}" alt="project thumbnail" style="object-fit: contain;"/>
+                                    <div class="card__body" style="padding: 15px;">
+                                        <h3 class="project__title" style="font-size: 1.25rem; margin: 0 0 10px 0; color: #333;">{{ job.title }}</h3>
+                                        <p><a class="project__author" href="#" style="color: #3498db; text-decoration: none;">{{ job.get_type_display }}</a></p>
                                         <br>
-                                        <div class="project__tags">
+                                        <div class="project__tags" style="display: flex; flex-wrap: wrap; gap: 5px;">
                                             {% for tag in job.tags.all %}
-                                                <span class="tag tag--pill tag--main">
-                                                 <small>{{ tag }}</small>
-                                </span>
+                                                <span class="tag tag--pill tag--main" style="color: #333; border-radius: 20px; padding: 5px 10px; font-size: 0.875rem;">
+                                                    <small>{{ tag }}</small>
+                                                </span>
                                             {% endfor %}
                                         </div>
                                     </div>
@@ -49,10 +47,11 @@
                             </div>
                         </div>
                     {% endfor %}
-
                 </div>
             </div>
         </section>
+        
+        
 
         {% include 'pagination.html' with queryset=jobs custom_range=custom_range %}
 
