@@ -11,7 +11,12 @@
                             <a class="tag tag--pill tag--main settings__btn" href="{% url 'users:edit-account' %}"><i
                                     class="im im-edit"></i>
                                     Редактировать</a>
-                            <img class="avatar avatar--xl dev__avatar" src="{{ profile.imageURL }}"/>
+                            {% if profile.imageURL  %}
+                                <img class="avatar avatar--xl dev__avatar" src="{{ profile.imageURL }}"/>
+                            {% else %}
+                                <img class="avatar avatar--xl dev__avatar" src="https://yelp.leoafricainstitute.org/wp-content/uploads/2022/05/default-profile-picture1.jpg"/>
+                            {% endif %}
+                            
                             <h2 class="dev__name">{{ profile.user.username }}</h2>
                             <p class="dev__title">{{ profile.short_intro }}</p>
                             <p class="dev__location">Базируется в {{ profile.location }}</p>

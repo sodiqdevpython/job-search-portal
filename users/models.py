@@ -12,8 +12,7 @@ class User(AbstractUser):
 
 class ProfileModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name='profile')
-    profile_image = models.ImageField(null=True, blank=True, upload_to='profile_photos/%Y/%m/',
-                                      default='user-default.png')
+    profile_image = models.ImageField(null=True, blank=True, upload_to='profile_photos/%Y/%m/')
     gender_choices = [("F", "Женский"), ("M", "Мужской")]
     gender = models.CharField(choices=gender_choices, max_length=5, default=False, null=True, blank=True,
                               verbose_name='Пол')

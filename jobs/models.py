@@ -19,7 +19,7 @@ class JobModel(models.Model):
     owner = models.ForeignKey(ProfileModel, null=True, blank=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
-    featured_image = models.ImageField(null=True, blank=True, upload_to='jobs/%Y/%m/', default='default.jpg')
+    featured_image = models.ImageField(null=True, blank=True, upload_to='jobs/%Y/%m/')
     type_choices = [("1", "На постоянной основе"), ("2", "Неполная занятость"), ("3", "Стажировка")]
     type = models.CharField(choices=type_choices, default=False, max_length=10)
     tags = models.ManyToManyField(TagModel, blank=True)
