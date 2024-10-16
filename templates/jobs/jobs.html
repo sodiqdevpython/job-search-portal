@@ -25,12 +25,11 @@
         <section class="projectsList">
             <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
                 <div class="grid grid--three" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
-        
                     {% for job in jobs %}
                         <div class="column" style="flex: 1 1 calc(33.333% - 20px); box-sizing: border-box; margin-bottom: 20px; max-width: calc(33.333% - 20px);">
                             <div class="card projects" style="border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease; background-color: #fff;">
                                 <a href="{% url 'job:job' job.id %}" class="project" style="text-decoration: none; color: inherit; display: block;">
-                                    <img class="project__thumbnail" src="{{ job.imageURL }}" alt="project thumbnail" style="object-fit: contain;"/>
+                                    <img class="project__thumbnail" src="{{ job.imageURL }}" alt="project thumbnail" style="object-fit: contain; width: 100%; height: auto;"/>
                                     <div class="card__body" style="padding: 15px;">
                                         <h3 class="project__title" style="font-size: 1.25rem; margin: 0 0 10px 0; color: #333;">{{ job.title }}</h3>
                                         <p><a class="project__author" href="#" style="color: #3498db; text-decoration: none;">{{ job.get_type_display }}</a></p>
@@ -50,6 +49,45 @@
                 </div>
             </div>
         </section>
+
+        <style>
+            /* Responsiveness for different screen sizes */
+            .grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        
+            .column {
+                flex: 1 1 calc(33.333% - 20px);
+                max-width: calc(33.333% - 20px);
+                margin-bottom: 20px;
+            }
+        
+            @media (max-width: 992px) {
+                /* For medium devices (tablets) */
+                .column {
+                    flex: 1 1 calc(50% - 20px);
+                    max-width: calc(50% - 20px);
+                }
+            }
+        
+            @media (max-width: 768px) {
+                /* For small devices (landscape phones) */
+                .column {
+                    flex: 1 1 calc(100% - 20px);
+                    max-width: calc(100% - 20px);
+                }
+            }
+        
+            @media (max-width: 576px) {
+                /* For extra small devices (portrait phones) */
+                .column {
+                    flex: 1 1 calc(100% - 20px);
+                    max-width: calc(100% - 20px);
+                }
+            }
+        </style>
         
         
 
