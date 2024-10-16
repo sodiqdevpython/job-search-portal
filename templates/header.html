@@ -2,33 +2,33 @@
 <header class="header">
     <div class="container container--narrow">
         <a href="{% url 'jobs:jobs' %}" class="header__logo">
-            <img src="{% static 'img/icon.svg' %}" alt="ProjectSearch Logo"/>
+            <img src="{% static 'img/icon.svg' %}" alt="Логотип проектаПоиск"/>
         </a>
         <nav class="header__nav">
             <input type="checkbox" id="responsive-menu"/>
             <label for="responsive-menu" class="toggle-menu">
-                <span>Menu</span>
+                <span>Меню</span>
                 <div class="toggle-menu__lines"></div>
             </label>
             <ul class="header__menu">
                 {% if user.is_employer or user.is_admin %}
-                    <li class="header__menuItem"><a href="{% url 'jobs:job-create' %}">Add Job</a></li>
-                    <li class="header__menuItem"><a href="{% url 'jobs:all-applicant' %}">Applications</a></li>
+                    <li class="header__menuItem"><a href="{% url 'jobs:job-create' %}">Добавить вакансию</a></li>
+                    <li class="header__menuItem"><a href="{% url 'jobs:all-applicant' %}">Приложения</a></li>
                 {% elif user.is_employee %}
-                    <li class="header__menuItem"><a href="{% url 'jobs:jobs' %}">Jobs</a></li>
-                    <li class="header__menuItem"><a href="{% url 'jobs:job-applicant' %}">My Applications</a></li>
+                    <li class="header__menuItem"><a href="{% url 'jobs:jobs' %}">Вакансии</a></li>
+                    <li class="header__menuItem"><a href="{% url 'jobs:job-applicant' %}">Мои приложения</a></li>
                 {% endif %}
 
                 {% if user.is_authenticated %}
-                    <li class="header__menuItem"><a href="{% url 'users:inbox' %}">Inbox</a></li>
+                    <li class="header__menuItem"><a href="{% url 'users:inbox' %}">Входящие</a></li>
 
-                    <li class="header__menuItem"><a href="{% url 'users:account' %}">Account</a></li>
-                    <li class="header__menuItem"><a href="{% url 'account_logout' %}" class="btn btn--sub">Logout</a>
+                    <li class="header__menuItem"><a href="{% url 'users:account' %}">Счет</a></li>
+                    <li class="header__menuItem"><a href="{% url 'account_logout' %}" class="btn btn--sub">Выход</a>
                     </li>
 
                 {% else %}
                     <li class="header__menuItem"><a href="{% url 'account_login' %}"
-                                                    class="btn btn--sub">Login </a>
+                                                    class="btn btn--sub">Войти </a>
                                                     </li>
 
                 {% endif %}

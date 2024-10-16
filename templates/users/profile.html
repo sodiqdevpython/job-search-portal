@@ -37,7 +37,7 @@
 
                                 {% if profile.social_website %}
                                     <li>
-                                        <a title="Personal Website" href="{{ profile.social_website }}" target="_blank"><i
+                                        <a title="Персональный сайт" href="{{ profile.social_website }}" target="_blank"><i
                                                 class="im im-globe"></i></a>
                                     </li>
                                 {% endif %}
@@ -45,8 +45,7 @@
                             </ul>
 
                             {% if request.user.profile.id != profile.id %}
-                                <a href="{% url 'users:create-message' profile.id %}" class="btn btn--sub btn--lg">Send
-                                    Message </a>
+                                <a href="{% url 'users:create-message' profile.id %}" class="btn btn--sub btn--lg">Отправить сообщение</a>
                             {% endif %}
                         </div>
                     </div>
@@ -55,11 +54,11 @@
             <div class="column column--2of3">
                     <div class="devInfo">
                         <div class="settings">
-                            <h3 class="devInfo__title">Informations</h3>
+                            <h3 class="devInfo__title">Информация</h3>
                         </div>
                         <div class="layout">
                             <div class="column column--1of3">
-                                <h4 class="dev__title">Fullname</h4>
+                                <h4 class="dev__title">Имя</h4>
                             </div>
                             <div class="column column--2of3">
                                 <h4 class="dev__title">{{ profile.user.get_full_name|title }}</h4>
@@ -67,7 +66,7 @@
                         </div>
                         <div class="layout">
                             <div class="column column--1of3">
-                                <h4 class="dev__title">Gender</h4>
+                                <h4 class="dev__title">Пол</h4>
                             </div>
                             <div class="column column--2of3">
                                 <p class="dev__title">{{ profile.get_gender_display }}</p>
@@ -75,7 +74,7 @@
                         </div>
                         <div class="layout">
                             <div class="column column--1of3">
-                                <h4 class="dev__title">Education</h4>
+                                <h4 class="dev__title">Образование</h4>
                             </div>
                             <div class="column column--2of3">
                                 <p class="dev__title">{{ profile.get_education_display }}</p>
@@ -83,7 +82,7 @@
                         </div>
                         <div class="layout">
                             <div class="column column--1of3">
-                                <h4 class="dev__title">Email</h4>
+                                <h4 class="dev__title">Электронная почта</h4>
                             </div>
                             <div class="column column--2of3">
                                 <p class="dev__title">{{ profile.user.email }}</p>
@@ -94,12 +93,12 @@
 
                 <div class="column column--2of3">
                     <div class="devInfo">
-                        <h3 class="devInfo__title">About Me</h3>
+                        <h3 class="devInfo__title">Обо мне</h3>
                         <p class="devInfo__about">{{ profile.bio }}</p>
                     </div>
                     {% if profile.user.is_employee %}
                         <div class="devInfo">
-                            <h3 class="devInfo__title">Skills</h3>
+                            <h3 class="devInfo__title">Навыки</h3>
                             <div class="devInfo__skills">
 
                                 {% for skill in topSkills %}
@@ -109,7 +108,7 @@
                                     </div>
                                 {% endfor %}
 
-                                <h3 class="devInfo__subtitle">Other Skills</h3>
+                                <h3 class="devInfo__subtitle">Другие навыки</h3>
                                 <div class="devInfo__otherSkills">
 
                                     {% for skill in otherSkills %}

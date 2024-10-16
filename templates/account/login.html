@@ -13,8 +13,8 @@
                 <a href="{% url 'jobs:jobs' %}">
                     <img src="{% static 'img/icon.svg' %}" alt="icon"/>
                 </a>
-                <h3>Account Login</h3>
-                <p>Hello, Welcome Back!</p>
+                <h3>Вход в аккаунт</h3>
+                <p>Привет, с возвращением!</p>
             </div>
 
             <form action="{% url 'account_login' %}" method="post" class="form auth__form">
@@ -37,13 +37,11 @@
                 {% endif %}
                 <div class="auth__actions">
                     <input class="btn btn--sub btn--lg" type="submit" value="Login"/>
-                    <a href="{% url 'account_reset_password' %}">Forget Password?</a>
+                    <!-- <a href="{% url 'account_reset_password' %}">Forget Password?</a> -->
                 </div>
             </form>
             <div class="dev__social">
-                <a title="Facebook" href="{% provider_login_url "facebook" method="oauth2" %}" target="_blank">
-                    <i class="im im-facebook" style="color:#4f4fd5"></i>
-                </a>
+                
                 <a title="Github" href="#" target="_blank">
                     <i class="im im-github" style="color:#312f2f"></i>
                 </a>
@@ -51,13 +49,13 @@
                     <i class="im im-twitter" style="color:#288ef5"></i>
                 </a>
                 </a>
-                <a title="Social Website" href="#" target="_blank">
+                <a title="Социальный сайт" href="#" target="_blank">
                     <i class="im im-youtube" style="color:#e84343"></i>
                 </a>
             </div>
 
             <div class="auth__alternative">
-                <p>Don't have an Account? <a href="{% url 'users:home' %}">Sign Up</a></p>
+                <p>У вас нет учетной записи? <a href="{% url 'users:home' %}">Зарегистрироваться</a></p>
             </div>
 
         </div>

@@ -5,18 +5,18 @@
         <section class="hero-section text-center">
             <div class="container container--narrow">
                 <div class="hero-section__box">
-                    <h2>Search for <span>Jobs</span></h2>
+                    <h2>Искать <span>Вакансии</span></h2>
                 </div>
 
                 <div class="hero-section__search">
                     <form id="searchForm" class="form" action="{% url 'jobs:jobs' %}" method="get">
                         <div class="form__field">
-                            <label for="formInput#search">Search By Jobs </label>
+                            <label for="formInput#search">Поиск по вакансиям</label>
                             <input class="input input--text" id="formInput#search" type="text" name="search_query"
-                                   placeholder="Search By Job Title" value="{{ search_query }}"/>
+                                   placeholder="Поиск по названию должности" value="{{ search_query }}"/>
                         </div>
 
-                        <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                        <input class="btn btn--sub btn--lg" type="submit" value="Поиск" />
                     </form>
                 </div>
             </div>

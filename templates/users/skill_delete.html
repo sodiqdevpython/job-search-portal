@@ -9,11 +9,11 @@
                 <form class="form" method="POST">
 
                     {% csrf_token %}
-                    <p>"{{ object }}" Silmek istediğinize emin misiniz?</p>
+                    <p>"{{ object }}" Вы уверены, что хотите удалить?</p>
                     <a class="btn btn--sub btn--lg  my-md" href="{{ request.GET.next }}">
-                        Geri
+                        Назад
                     </a>
-                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Sil"/>
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Удалить"/>
                 </form>
             </div>
         </div>

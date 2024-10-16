@@ -9,7 +9,7 @@ class TagModel(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     class Meta:
-        verbose_name_plural = 'Tags'
+        verbose_name_plural = 'ярлык'
 
     def __str__(self):
         return self.name
@@ -20,14 +20,14 @@ class JobModel(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, upload_to='jobs/%Y/%m/', default='default.jpg')
-    type_choices = [("1", "Full Time"), ("2", "Part Time"), ("3", "Internship")]
+    type_choices = [("1", "На постоянной основе"), ("2", "Неполная занятость"), ("3", "Стажировка")]
     type = models.CharField(choices=type_choices, default=False, max_length=10)
     tags = models.ManyToManyField(TagModel, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     class Meta:
-        verbose_name_plural = 'Jobs'
+        verbose_name_plural = 'Вакансии'
         ordering = ['created']
 
     @property
@@ -50,7 +50,7 @@ class ApplicantModel(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     class Meta:
-        verbose_name_plural = 'Applicants'
+        verbose_name_plural = 'Кандидаты'
         unique_together = [['user', 'job']]
         ordering = ['is_read','-created']
 

@@ -7,8 +7,8 @@ from users.models import ProfileModel, User, Skill, Message
 
 
 class CustomSignupForm(SignupForm):
-    first_name = forms.CharField(max_length=60, label="Adı", widget=forms.TextInput(attrs={'placeholder': 'Adı'}))
-    last_name = forms.CharField(max_length=60, label="Soyadı", widget=forms.TextInput(attrs={'placeholder': 'Soyadı'}))
+    first_name = forms.CharField(max_length=60, label="Имя", widget=forms.TextInput(attrs={'placeholder': 'Имя'}))
+    last_name = forms.CharField(max_length=60, label="Фамилия", widget=forms.TextInput(attrs={'placeholder': 'Фамилия'}))
 
 
 class CustomUserCretionForm(UserCreationForm):

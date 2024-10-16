@@ -74,7 +74,7 @@ def createSkill(request):
             skill = form.save(commit=False)
             skill.owner = profile
             skill.save()
-            messages.success(request, 'Başarıyla eklendi!')
+            messages.success(request, "Добавлено успешно !")
             return redirect('users:account')
 
     context = {'form': form}
@@ -92,7 +92,7 @@ def updateSkill(request, pk):
 
         if form.is_valid():
             form.save()
-            messages.success(request, 'Beceri başarıyla güncellendi!')
+            messages.success(request, 'Успешно обновлено')
             return redirect('users:account')
 
     context = {'form': form}
@@ -106,7 +106,7 @@ def deleteSkill(request, pk):
 
     if request.method == 'POST':
         skill.delete()
-        messages.success(request, 'Beceri başarıyla silindi!')
+        messages.success(request, "Удален успешно")
         return redirect('users:account')
 
     context = {'object': skill}
@@ -157,7 +157,7 @@ def createMessage(request, pk):
                 message.email = sender.user.email
             message.save()
 
-            messages.success(request, 'Your message was successfully sent!')
+            messages.success(request, "Ваше сообщение успешно отправлено!")
             return redirect('users:user-profile', pk=recipient.id)
 
     context = {'recipient': recipient, 'form': form}

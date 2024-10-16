@@ -14,12 +14,12 @@ class ProfileModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name='profile')
     profile_image = models.ImageField(null=True, blank=True, upload_to='profile_photos/%Y/%m/',
                                       default='user-default.png')
-    gender_choices = [("F", "Female"), ("M", "Male")]
+    gender_choices = [("F", "Женский"), ("M", "Мужской")]
     gender = models.CharField(choices=gender_choices, max_length=5, default=False, null=True, blank=True,
-                              verbose_name='Gender')
-    education_choices = [("1", "High School"), ("2", "Associate Degree"), ("3", "License"), ("4", "Postgraduate"), ("5", "Doctor")]
+                              verbose_name='Пол')
+    education_choices = [("1", "Средняя школа"), ("2", "Ассоциированная степень"), ("3", "Лицензия"), ("4", "Aспирант"), ("5", "Доктор")]
     education = models.CharField(choices=education_choices, max_length=13, default=False, null=True, blank=True,
-                                 verbose_name='Education')
+                                 verbose_name='Образование')
     location = models.CharField(max_length=200, null=True, blank=True)
     bio = models.TextField(null=True, blank=True)
     short_intro = models.CharField(max_length=200, blank=True, null=True)
@@ -32,7 +32,8 @@ class ProfileModel(models.Model):
     social_website = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = 'Profiles'
+        verbose_name = "Профиль"
+        verbose_name_plural = 'Профили'
 
     def __str__(self):
         return str(self.user.username)
@@ -63,7 +64,7 @@ class Skill(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     class Meta:
-        verbose_name_plural = 'Skills'
+        verbose_name_plural = 'Навыки'
 
     def __str__(self):
         return str(self.name)
@@ -81,7 +82,8 @@ class Message(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     class Meta:
-        verbose_name_plural = 'Messages'
+        verbose_name = "Сообщение"
+        verbose_name_plural = 'Сообщения'
         ordering = ['is_read','-created']
 
     def __str__(self):
